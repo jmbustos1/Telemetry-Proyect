@@ -1,0 +1,32 @@
+import time
+import datetime
+from tkinter import *
+import tkinter as tk
+
+
+path = '/home/pi/Desktop/boots.txt'
+title = 'Days of the Week'
+
+
+
+f=open(path,'a')
+
+print(title)
+
+f.write(title + "\n")
+f.close()
+root = tk.Tk()
+
+def exitProgram():
+    print("Exit button pressed")
+    root.quit()
+
+try:
+    while True:
+        now = datetime.datetime.now()
+        label9=Label(root,text=now)
+        label9.grid(row=0,column=0,pady=25)
+        root.update()
+        time.sleep(1)
+except KeyboardInterrupt:
+    print('\n\rKeyboard interrupt')
